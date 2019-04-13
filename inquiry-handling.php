@@ -25,10 +25,11 @@
 		require_once("reason_response.php"); 
 		require_once("general_info.php");
 		require_once("report_abuse.php");
-		require_once("non_shelter.php");
+		require_once("referrals.php");
 		require_once("shelter.php");
 		require_once("prompt_for_age.php"); 
 		require_once("restart.php"); 
+		require_once("intake_form.php"); 
 	?>
 
     <link href="normalize.css" type="text/css" rel="stylesheet" />
@@ -84,16 +85,16 @@
 			$_SESSION["next-step"] = "end_session"; 
 		}
 		
-		elseif($_SESSION["reason"] == "non_shelter" )
+		elseif($_SESSION["reason"] == "referrals" )
 		{
-			non_shelter();
+			referrals();
 			$_SESSION["next-step"] = "end_session"; 
 		}
 		
 		elseif($_SESSION["reason"] == "shelter" )
 		{
 			// verify that age has been input 
-			if (! array_key_exists("age", $_SESSION))
+			if (! array_key_exists("age", $_SESSION) or $_SESSION["age"] == "" )
 			{
 				?>
 				<form action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>"
@@ -107,11 +108,49 @@
 			}
 			else
 			{
-				?>
-				<p> age exists </p> 
-				<?php
+				// if we're coming from the previous branch (age isn't in the 
+				// session array yet), add it before proceeding 
+				// add age to session array
+				if(array_key_exists ("age", $_POST))
+				{
+					$_SESSION["age"] = htmlspecialchars($_POST["age"]); 
+				}
+				
+				// now, assuming $_SESSION["age"] has been sanitized, redirect
+				// to page based on youth's age
+				$age = $_SESSION["age"]; 
+				
+				if (($age >= 12) and ($age <= 17))
+				{
+					// this person qualifies for same-day shelter, so do an intake form
+					intake_form();
+					$_SESSION["next-step"] = "end_session"; 
+				}
+				elseif (($age >= 18) and ($age <= 24))
+				{
+					?>
+					<p> We do not provide same-day shelter for this age group, but they
+						may qualify for one of our transitional housing programs. </p>
+					<?php
+					referrals(); 
+					$_SESSION["next-step"] = "end_session"; 
+				}
+				// if the person is less than 12 or older than 24 
+				else
+				{
+					// can't provide services for this person; refer them
+					?>
+					<p> We do not provide housing for people under 12 or over 24. </p> 
+					<?php
+					referrals();
+					$_SESSION["next-step"] = "end_session"; 
+				}
 			}
 		}
+	}
+	elseif($_SESSION["next-step"] == "end_session")
+	{
+		restart(); 
 	}
 
 	?>

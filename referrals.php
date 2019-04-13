@@ -4,7 +4,7 @@
 /* Creates an initial form asking for caller and youth data from the user. 
 */
 
-function non_shelter()
+function referrals()
 {
 	?>
 	<p> Gives info with a checklist. </p> 

@@ -18,7 +18,7 @@ function reason_contact()
 		<input type="radio" name="reason" id="report_abuse" value="report_abuse" />
 		
 		<label for="non_shelter"> Request non-shelter resources </label>
-		<input type="radio" name="reason" id="non_shelter" value="non_shelter" />
+		<input type="radio" name="reason" id="referrals" value="referrals" />
 		
 		<label for="shelter"> Request shelter </label>
 		<input type="radio" name="reason" id="shelter" value="shelter" />
