@@ -96,7 +96,7 @@
 			// verify that age has been input 
 			if (! array_key_exists("age", $_SESSION) or $_SESSION["age"] == "" )
 			{
-				if(array_key_exists("age", $_POST)
+				if(array_key_exists("age", $_POST))
 				{
 					$_SESSION["age"] = htmlspecialchars($_POST["age"]); 
 				}
