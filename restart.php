@@ -10,8 +10,8 @@ function restart()
 	//session_regenerate_id(TRUE); 
 	//session_start(); 
 	
-	create_form(); 
-	$_SESSION["next-step"] = "contact-reason"; 
+	//create_form(); 
+	//$_SESSION["next-step"] = "contact-reason"; 
 }
 	
 ?>
