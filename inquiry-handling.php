@@ -106,15 +106,16 @@
 				</form>
 				<?php
 			}
+			
 			else
 			{
 				// if we're coming from the previous branch (age isn't in the 
 				// session array yet), add it before proceeding 
 				// add age to session array
-				if(array_key_exists ("age", $_POST))
-				{
+				//if(array_key_exists ("age", $_POST))
+				//{
 					$_SESSION["age"] = htmlspecialchars($_POST["age"]); 
-				}
+				//}
 				
 				// now, assuming $_SESSION["age"] has been sanitized, redirect
 				// to page based on youth's age
