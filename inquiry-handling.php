@@ -94,7 +94,7 @@
 		elseif($_SESSION["reason"] == "shelter" )
 		{
 			// verify that age has been input 
-			/*if (! array_key_exists("age", $_SESSION) or $_SESSION["age"] == "" )
+			if (! array_key_exists("age", $_SESSION) or $_SESSION["age"] == "" )
 			{
 				?>
 				<form action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>"
@@ -105,23 +105,12 @@
 					<input type="submit" name="submit" />
 				</form>
 				<?php
-			}*/
-			
-			if (! array_key_exists("age", $_SESSION))
-			{
-				?>
-				<p> array key "age' doesn't exist </p>
-				<?php
 			}
-			elseif($_SESSION["age"] == "")
-			{
-				?>
-				<p> age is "" </p>
-				<?php
-			}
-			
 			else
 			{
+				?>
+				<p> Entered else branch </p>
+				<?php
 				// if we're coming from the previous branch (age isn't in the 
 				// session array yet), add it before proceeding 
 				// add age to session array
@@ -129,6 +118,11 @@
 				//{
 					$_SESSION["age"] = htmlspecialchars($_POST["age"]); 
 				//}
+				
+				?>
+				<p> $_POST["age"] is <?= htmlspecialchars($_POST["age"]) ?> </p>
+				<p> $_SESSION["age"] is <?= $_SESSION["age"] ?> </p>
+				<?php
 				
 				// now, assuming $_SESSION["age"] has been sanitized, redirect
 				// to page based on youth's age
