@@ -96,15 +96,22 @@
 			// verify that age has been input 
 			if (! array_key_exists("age", $_SESSION) or $_SESSION["age"] == "" )
 			{
-				?>
-				<form action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>"
-					method="post">
-				<?php
-					prompt_for_age(); 
-				?>
-					<input type="submit" name="submit" />
-				</form>
-				<?php
+				if(array_key_exists("age", $_POST)
+				{
+					$_SESSION["age"] = htmlspecialchars($_POST["age"]); 
+				}
+				else
+				{
+					?>
+					<form action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>"
+						method="post">
+					<?php
+						prompt_for_age(); 
+					?>
+						<input type="submit" name="submit" />
+					</form>
+					<?php
+				}
 			}
 			else
 			{
