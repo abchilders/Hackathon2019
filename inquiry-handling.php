@@ -160,6 +160,12 @@
 	{
 		restart(); 
 	}
+	else
+	{
+		?>
+			<p> AY AY AY </p> 
+		<?php
+	}
 
 	?>
 <!-- remove footer when presenting -->
