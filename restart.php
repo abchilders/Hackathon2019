@@ -10,8 +10,8 @@ function restart()
 	session_regenerate_id(TRUE); 
 	session_start(); 
 	
-	// IF THIS DOESN'T WORK, INCLUDE A CALL TO THE FUNCTION THAT CREATES THE 
-	// LANDING PAGE 
+	create_form(); 
+	$_SESSION["next-step"] = "contact-reason"; 
 }
 	
 ?>
