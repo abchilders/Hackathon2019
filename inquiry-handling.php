@@ -53,6 +53,14 @@
 		<?php
 	}
 	
+	//DEBUG
+	if (array_key_exists("age", $_SESSION))
+	{
+		?>
+		<p> Age is: <?= $_SESSION["age"] ?> </p>
+		<?php
+	}
+	
 	// create the initial form
 	if (! array_key_exists("next-step", $_SESSION))
 	{
@@ -109,6 +117,9 @@
 			{
 				if(array_key_exists("age", $_POST))
 				{
+					?>
+					<p> the key "age" exists in $_POST </p>
+					<?php
 					$_SESSION["age"] = htmlspecialchars($_POST["age"]); 
 				}
 				else
@@ -182,6 +193,30 @@
 	{
 		?>
 			<p> AY AY AY </p> 
+		<?php
+	}
+	
+	//DEBUG
+	if (array_key_exists("next-step", $_SESSION))
+	{
+		?>
+		<p> Next step is: <?= $_SESSION["next-step"] ?> </p>
+		<?php
+	}
+	
+	//DEBUG
+	if (array_key_exists("reason", $_SESSION))
+	{
+		?>
+		<p> Reason is: <?= $_SESSION["reason"] ?> </p>
+		<?php
+	}
+	
+	//DEBUG
+	if (array_key_exists("age", $_SESSION))
+	{
+		?>
+		<p> Age is: <?= $_SESSION["age"] ?> </p>
 		<?php
 	}
 
