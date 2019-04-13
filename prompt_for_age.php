@@ -8,7 +8,7 @@ function prompt_for_age()
 {
 	?>
 		<label for="age"> Age </label>
-		<input type="number" id="age" name="age" required="required" />
+		<input type="number" id="age" name="age" />
 	<?php
 }
 ?>
