@@ -23,6 +23,11 @@
 		require_once("create_form.php"); 
 		require_once("reason_contact.php"); 
 		require_once("reason_response.php"); 
+		require_once("general_info.php");
+		require_once("report_abuse.php");
+		require_once("non_shelter.php");
+		require_once("shelter.php");
+		
 	?>
 
     <link href="normalize.css" type="text/css" rel="stylesheet" />
@@ -46,10 +51,34 @@
 	// IDEA: put checkboxes that are on into an array and iterate through the array to make sure we 
 	// respond to all checkboxes (TO DO LATER)
 	// TO DO: add "other" option 
-	elseif($_SESSION["next-step"] == "reason-response")
+	elseif($_SESSION["next-step"] == "reason-response"
+			and $_POST["reason"] == "general_info" )
 	{
-		reason_response(); 
+		general_info();
+	    $_SESSION["next-step"] = "end_session"; 
 	}
+	
+	elseif($_SESSION["next-step"] == "reason-response"
+			and $_POST["reason"] == "report_abuse" )
+	{
+		report_abuse();
+	    $_SESSION["next-step"] = "end_session"; 
+	}
+	
+	elseif($_SESSION["next-step"] == "reason-response"
+			and $_POST["reason"] == "non_shelter" )
+	{
+		non_shelter();
+	    $_SESSION["next-step"] = "end_session"; 
+	}
+	
+	elseif($_SESSION["next-step"] == "reason-response"
+			and $_POST["reason"] == "shelter" )
+	{
+		shelter();
+	    $_SESSION["next-step"] = "end_session"; 
+	}
+
 	?>
 <!-- remove footer when presenting -->
     <hr />
