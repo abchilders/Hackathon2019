@@ -27,6 +27,7 @@
 		require_once("report_abuse.php");
 		require_once("non_shelter.php");
 		require_once("shelter.php");
+		require_once("prompt_for_age.php"); 
 		
 	?>
 
@@ -44,6 +45,12 @@
 	
 	elseif($_SESSION["next-step"] == "contact-reason")
 	{
+		// add age to session array
+		if( (array_key_exists ("age", $_POST)) and 
+			($_POST["age"] != "") )
+		{
+			$_SESSION["age"] = $_POST["age"]; 
+		}
 		reason_contact(); 
 		$_SESSION["next-step"] = "reason-response"; 
 	}
@@ -75,8 +82,15 @@
 	elseif($_SESSION["next-step"] == "reason-response"
 			and $_POST["reason"] == "shelter" )
 	{
-		shelter();
-	    $_SESSION["next-step"] = "end_session"; 
+		// verify that age has been input 
+		if (! array_key_exists("age", $_SESSION))
+		{
+			prompt_for_age(); 
+		}
+		else
+		{
+			
+		}
 	}
 
 	?>
