@@ -112,41 +112,33 @@
 		
 		elseif($_SESSION["reason"] == "shelter" )
 		{
-			// verify that age has been input 
-			if (! array_key_exists("age", $_SESSION) or $_SESSION["age"] == "" )
+			// if we haven't received age yet at all 
+			if (! array_key_exists("age", $_SESSION) and ! array_key_exists("age", $_POST))
 			{
-				if(array_key_exists("age", $_POST))
-				{
-					?>
-					<p> the key "age" exists in $_POST </p>
-					<?php
-					$_SESSION["age"] = htmlspecialchars($_POST["age"]); 
-				}
-				else
-				{
-					?>
-					<form action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>"
-						method="post">
-					<?php
-						prompt_for_age(); 
-					?>
-						<input type="submit" name="submit" />
-					</form>
-					<?php
-				}
+				// ask for it
+				?>
+				<form action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>"
+					method="post">
+				<?php
+					prompt_for_age(); 
+				?>
+					<input type="submit" name="submit" />
+				</form>
+				<?php
 			}
+				
+			// if we get here, age is either in $_SESSION or $_POST, from the above if branch 
 			else
 			{
 				?>
 				<p> Entered else branch </p>
 				<?php
 				// if we're coming from the previous branch (age isn't in the 
-				// session array yet), add it before proceeding 
-				// add age to session array
-				//if(array_key_exists ("age", $_POST))
-				//{
+				// session array yet), add age to session array
+				if(array_key_exists ("age", $_POST))
+				{
 					$_SESSION["age"] = htmlspecialchars($_POST["age"]); 
-				//}
+				}
 				
 				?>
 				<p> $_POST["age"] is <?= htmlspecialchars($_POST["age"]) ?> </p>
