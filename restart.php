@@ -7,8 +7,8 @@ function restart()
 	session_destroy(); 
 	
 	// restart a new session from the landing page 
-	session_regenerate_id(TRUE); 
-	session_start(); 
+	//session_regenerate_id(TRUE); 
+	//session_start(); 
 	
 	create_form(); 
 	$_SESSION["next-step"] = "contact-reason"; 
