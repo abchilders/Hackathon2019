@@ -8,10 +8,11 @@ function restart()
 	
 	// restart a new session from the landing page 
 	//session_regenerate_id(TRUE); 
-	//session_start(); 
+	// TRY THIS WHEN WE GET BACK
+	session_start(); 
 	
-	//create_form(); 
-	//$_SESSION["next-step"] = "contact-reason"; 
+	create_form(); 
+	$_SESSION["next-step"] = "contact-reason"; 
 }
 	
 ?>
