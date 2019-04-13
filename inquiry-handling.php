@@ -28,7 +28,7 @@
 		require_once("non_shelter.php");
 		require_once("shelter.php");
 		require_once("prompt_for_age.php"); 
-		
+		require_once("restart.php"); 
 	?>
 
     <link href="normalize.css" type="text/css" rel="stylesheet" />
@@ -61,6 +61,11 @@
 		{
 			$_SESSION["reason"] = htmlspecialchars($_POST["reason"]);
 		}
+		else
+		{
+			// placeholder 
+			$_SESSION["reason"] = ""; 
+		}
 		
 		// respond depending on the reason for calling
 		
@@ -90,11 +95,21 @@
 			// verify that age has been input 
 			if (! array_key_exists("age", $_SESSION))
 			{
-				prompt_for_age(); 
+				?>
+				<form action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>"
+					method="post">
+				<?php
+					prompt_for_age(); 
+				?>
+					<input type="submit" name="submit" />
+				</form>
+				<?php
 			}
 			else
 			{
-				
+				?>
+				<p> age exists </p> 
+				<?php
 			}
 		}
 	}
