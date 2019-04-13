@@ -10,7 +10,7 @@ function reason_contact()
 {
 	?>
 	<form action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>"
-		method="get">
+		method="post">
 		<label for="general_info"> General Info </label>
 		<input type="radio" name="reason" id="general_info" value="general_info" />
 		
