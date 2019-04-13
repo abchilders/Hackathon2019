@@ -74,14 +74,9 @@
 	
 	elseif($_SESSION["next-step"] == "reason-response")
 	{
-		if (array_key_exists("reason", $_POST))
+		if(! array_key_exists("reason", $_SESSION))
 		{
 			$_SESSION["reason"] = htmlspecialchars($_POST["reason"]);
-		}
-		else
-		{
-			// placeholder 
-			$_SESSION["reason"] = ""; 
 		}
 		
 		// respond depending on the reason for calling
