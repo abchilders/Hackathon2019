@@ -37,6 +37,22 @@
 
 <body>
 	<?php
+	//DEBUG
+	if (array_key_exists("next-step", $_SESSION))
+	{
+		?>
+		<p> Next step is: <?= $_SESSION["next-step"] ?> </p>
+		<?php
+	}
+	
+	//DEBUG
+	if (array_key_exists("reason", $_SESSION))
+	{
+		?>
+		<p> Reason is: <?= $_SESSION["reason"] ?> </p>
+		<?php
+	}
+	
 	// create the initial form
 	if (! array_key_exists("next-step", $_SESSION))
 	{
