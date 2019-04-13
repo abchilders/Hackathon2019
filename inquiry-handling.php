@@ -94,7 +94,7 @@
 		elseif($_SESSION["reason"] == "shelter" )
 		{
 			// verify that age has been input 
-			if (! array_key_exists("age", $_SESSION) or $_SESSION["age"] == "" )
+			/*if (! array_key_exists("age", $_SESSION) or $_SESSION["age"] == "" )
 			{
 				?>
 				<form action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>"
@@ -104,6 +104,19 @@
 				?>
 					<input type="submit" name="submit" />
 				</form>
+				<?php
+			}*/
+			
+			if (! array_key_exists("age", $_SESSION))
+			{
+				?>
+				<p> array key "age' doesn't exist </p>
+				<?php
+			}
+			elseif($_SESSION["age"] == "")
+			{
+				?>
+				<p> age is "" </p>
 				<?php
 			}
 			
