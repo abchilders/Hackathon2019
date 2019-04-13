@@ -49,47 +49,50 @@
 		if( (array_key_exists ("age", $_POST)) and 
 			($_POST["age"] != "") )
 		{
-			$_SESSION["age"] = $_POST["age"]; 
+			$_SESSION["age"] = htmlspecialchars($_POST["age"]); 
 		}
-		reason_contact(); 
+		reason_contact();  
 		$_SESSION["next-step"] = "reason-response"; 
 	}
 	
-	// IDEA: put checkboxes that are on into an array and iterate through the array to make sure we 
-	// respond to all checkboxes (TO DO LATER)
-	// TO DO: add "other" option 
-	elseif($_SESSION["next-step"] == "reason-response"
-			and $_POST["reason"] == "general_info" )
+	elseif($_SESSION["next-step"] == "reason-response")
 	{
-		general_info();
-	    $_SESSION["next-step"] = "end_session"; 
-	}
-	
-	elseif($_SESSION["next-step"] == "reason-response"
-			and $_POST["reason"] == "report_abuse" )
-	{
-		report_abuse();
-	    $_SESSION["next-step"] = "end_session"; 
-	}
-	
-	elseif($_SESSION["next-step"] == "reason-response"
-			and $_POST["reason"] == "non_shelter" )
-	{
-		non_shelter();
-	    $_SESSION["next-step"] = "end_session"; 
-	}
-	
-	elseif($_SESSION["next-step"] == "reason-response"
-			and $_POST["reason"] == "shelter" )
-	{
-		// verify that age has been input 
-		if (! array_key_exists("age", $_SESSION))
+		$_SESSION["reason"] = htmlspecialchars($_POST["reason"]);
+		
+		// respond depending on the reason for calling
+		
+		// IDEA: put checkboxes that are on into an array and iterate through the array to make sure we 
+		// respond to all checkboxes (TO DO LATER)
+		// TO DO: add "other" option 
+		if($_SESSION["reason"] == "general_info" )
 		{
-			prompt_for_age(); 
+			general_info();
+			$_SESSION["next-step"] = "end_session"; 
 		}
-		else
+		
+		elseif($_SESSION["reason"] == "report_abuse" )
 		{
-			
+			report_abuse();
+			$_SESSION["next-step"] = "end_session"; 
+		}
+		
+		elseif($_SESSION["reason"] == "non_shelter" )
+		{
+			non_shelter();
+			$_SESSION["next-step"] = "end_session"; 
+		}
+		
+		elseif($_SESSION["reason"] == "shelter" )
+		{
+			// verify that age has been input 
+			if (! array_key_exists("age", $_SESSION))
+			{
+				prompt_for_age(); 
+			}
+			else
+			{
+				
+			}
 		}
 	}
 
