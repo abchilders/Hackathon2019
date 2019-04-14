@@ -9,7 +9,6 @@ function restart()
 	// restart a new session from the landing page 
 	session_start(); 
 	
-	<p> Inquiry record successfully submitted. Thank you! </p> 
 	create_login(); 
 	$_SESSION["next-step"] = "start-form"; 
 }
