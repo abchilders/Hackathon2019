@@ -1,10 +1,5 @@
 <?php
 	session_start(); 
-	
-	if(! array_key_exists("title", $_SESSION))
-	{
-		$_SESSION["title"] = "Starting Point"; 
-	}
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +16,7 @@
 -->
 
 <head>
-    <title> <?= $_SESSION["title"] ?> </title>
+    <title> Inquiry Response </title>
     <meta charset="utf-8" />
 	
 	<?php
@@ -30,13 +25,14 @@
 		require_once("reason_response.php"); 
 		require_once("general_info.php");
 		require_once("report_abuse.php");
-		//require_once("referrals.php");
 		require_once("shelter.php"); 
 		require_once("restart.php"); 
-		require_once("intake_form.php"); 
+		require_once("intake_form.php");
+		require_once("other_reason.php"); 
 	?>
 
     <link href="normalize.css" type="text/css" rel="stylesheet" />
+	
 </head>
 
 <body>
@@ -71,7 +67,6 @@
 	{
 		require_once("Startingpoint.html"); 
 		$_SESSION["next-step"] = "contact-reason"; 
-		$_SESSION["title"] = "Section 1"; 
 	}
 	
 	elseif($_SESSION["next-step"] == "contact-reason")
@@ -82,10 +77,20 @@
 		{
 			$_SESSION["age"] = htmlspecialchars($_POST["age"]); 
 		}
+		
+		if( (array_key_exists("caller_name", $_POST)) and 
+			($_POST["caller_name"] != "") )
+		{
+			$_SESSION["caller_name"] = htmlspecialchars($_POST["caller_name"]); 
+		}
+		
+		if( (array_key_exists("caller", $_POST)) and 
+			($_POST["caller"] != "") )
+		{
+			$_SESSION["caller"] = htmlspecialchars($_POST["caller"]); 
+		}
 		require_once("Section1.html");  
 		$_SESSION["next-step"] = "reason-response"; 
-		
-		//CREATE TITLES IN RESPONSE TO REASON LATER LOL 
 	}
 	
 	elseif($_SESSION["next-step"] == "reason-response")
@@ -114,7 +119,14 @@
 		
 		elseif($_SESSION["reason"] == "resources" )
 		{
-			require_once("Section2.html"); 
+			?>
+			<form action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>"
+				method="post">
+				<?php
+				require_once("Section2.html");
+				?>
+			</form>
+			<?php
 			$_SESSION["next-step"] = "end_session"; 
 		}
 		
@@ -151,16 +163,64 @@
 				if ($age == "12-17") 
 				{
 					// this person qualifies for same-day shelter, so do an intake form
-					intake_form();
+					//intake_form();
+					?>
+					<h1> Complete the following shelter intake checklist. </h1>
+					<?php
+					require_once("Intakeform.html");
 					$_SESSION["next-step"] = "end_session"; 
 				}
 				elseif ($age == "18-24")
 				{
 					?>
-					<p> We do not provide same-day shelter for this age group, but they
-						may qualify for one of our transitional housing programs. </p>
+					<ul>
+						<li>Inform them that we do not have same-day shelter for this group, but that they may 
+				qualify for one of our transitional housing programs. </li>
+						<li> Make sure you have reliable contact information 
+						and tell them someone will be calling them back in the 
+						next few days with more detail about these programs.</li>
+						<li> Provide referrals as needed (document any referrals in SECTION 2)</li>
+					</ul>
+					
+					<form action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>"
+					method="post">
+					<fieldset>
+						<legend> Add caller information as needed. </legend>
+						<label>
+							Name of caller:
+							<input type="text" name="caller_name" 
+							<?php
+							if(array_key_exists("caller_name", $_SESSION))
+							{
+								?>
+								value="<?= $_SESSION["caller_name"] ?>"
+								<?php
+							}
+							?>
+							/> 
+						</label>
+						<label>
+							Caller phone number/contact info:
+							<input type="text" name="caller"
+							<?php
+							if(array_key_exists("caller", $_SESSION))
+							{
+								?>
+								value="<?= $_SESSION["caller"] ?>"
+								<?php
+							}
+							?>
+							/>
+						</label>
+						<label> Other contact information: 
+						<textarea rows="5" cols="20"></textarea>
+						</label>
+					</fieldset>
 					<?php
 					require_once("Section2.html");
+					?>
+					</form>
+					<?php
 					$_SESSION["next-step"] = "end_session"; 
 				}
 				// if the person is less than 12 or older than 24 
@@ -169,8 +229,14 @@
 					// can't provide services for this person; refer them
 					?>
 					<p> We do not provide housing for people under 12 or over 24. </p> 
+
+					<form action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>"
+					method="post">
 					<?php
-					require_once("Section2.html"); 
+					require_once("Section2.html");
+					?>
+					</form>
+					<?php
 					$_SESSION["next-step"] = "end_session"; 
 				}
 				else
@@ -179,11 +245,22 @@
 					?>
 					<p> We can't help you if we don't know your age, but there
 						are other resources we can refer you to. </p>
+						
+					<form action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>"
+					method="post">
 					<?php
-					require_once("Section2.html"); 
+					require_once("Section2.html");
+					?>
+					</form>
+					<?php
 					$_SESSION["next-step"] = "end_session"; 
 				}
 			}
+		}
+		elseif($_SESSION["reason"] == "other_two" )
+		{
+			other_reason(); 
+			$_SESSION["next-step"] = "end_session"; 
 		}
 	}
 	elseif($_SESSION["next-step"] == "end_session")
@@ -193,7 +270,7 @@
 	else
 	{
 		?>
-			<p> AY AY AY </p> 
+			<p> Should not have gotten here?!?! </p> 
 		<?php
 	}
 	

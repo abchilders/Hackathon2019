@@ -1,16 +1,17 @@
 <?php
-// CURRENTLY A STUB FOR DEBUGGING PURPOSES. 
-
-/* Creates an initial form asking for caller and youth data from the user. 
-*/
+// Creates a form to record caller information regarding reported abuse/neglect.
 
 function report_abuse()
 {
 	?>
-	<p> Incluse a tex are for the report. </p> 
-	
-	<p> <a href="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>">
-        Start Over </a> </p>
+	<form action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>"
+	  method="post">
+		<label for="notes"> Take detailed notes. You may be asked to make a report at 
+		a later date. </label>
+		
+		<textarea id="notes" rows="5" cols="20"> </textarea>
+	<input type="submit" name="abuse_report" value="Finish" />
+	</form>
 	<?php
 }
 ?>

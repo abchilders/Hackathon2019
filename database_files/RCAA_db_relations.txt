@@ -1,0 +1,19 @@
+Last modified: 2019/04/14
+
+youth(YOUTH_ID, name, date_of_birth, age_range, contact_info, guardian)
+
+inquiry(CALL_ID, date, staff, caller_name, caller_role, caller_contact_info, 
+		reason, outcome, youth_id, report_id, intake_id)
+		foreign key (youth) references youth
+		foreign key (report_id) references report
+		foreign key (intake_id) references shelter_req 
+
+referral(REFERRAL_ID, date, agency, referral_completion_date)
+
+referrals_from_inquiry(CALL_ID, REFERRAL_ID) 
+	foreign key (call_id) references inquiry,
+	foreign key (referral_id) references referral 
+
+shelter_req(INTAKE_ID, [form_info], outcome, arrival_time, not_coming_reason)
+
+report(REPORT_ID, date_created, notes, date_resolved)

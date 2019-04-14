@@ -1,3 +1,9 @@
+<head>
+<link href="http://nrs-projects.humboldt.edu/~abc66/Hackathon2019/starting_point.css"
+          type="text/css" rel="stylesheet" />
+</head>
+
+
 <form action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>"
 	  method="post">
 	<fieldset>
@@ -10,6 +16,11 @@
 		<label>
 			Staff:
 			<input type="text" name="staff"/>
+		</label>
+		
+		<label>
+			Name of caller:
+			<input type="text" name="caller_name" /> 
 		</label>
 			<p>Caller's role<br />
 
