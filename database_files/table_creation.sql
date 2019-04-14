@@ -71,7 +71,7 @@ create table inquiry
  report_id				integer, 
  intake_id				integer,
  primary key (call_id),
- foreign key (youth) references youth,
+ foreign key (youth_id) references youth,
  foreign key (report_id) references report,
  foreign key (intake_id) references shelter_req); 
 
