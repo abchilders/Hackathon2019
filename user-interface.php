@@ -1,4 +1,5 @@
 <?php
+
 	session_start(); 
 ?>
 
@@ -13,40 +14,48 @@
     you can run this using the URL: 
 	https://nrs-projects.humboldt.edu/~abc66/Hackathon2019/user-interface.php
 
+	Rawan's copy:
+	https://nrs-projects.humboldt.edu/~rha25/Hackathon2019/user-interface.php
 -->
 
 <head>
     <title> Inquiry Response </title>
-    <meta charset="utf-8" />
+    <meta chars t="utf-8" />
 	
 	<!-- <link href="normalize.css" type="text/css" rel="stylesheet" /> -->
-
-	<!-- css styling 
+ 
 	<style>
-		body
+	body
 		{
 			margin-left: 1em;
-			background-color: purple;
+			background-color: beige;
 		}
 
-		form
+	form
 		{
 			margin-left: auto;
 			margin-right: auto;
 			width: 24em;
-			background-color:red;
+			background-color: white;
 		}
 
 
-		fieldset
+	fieldset
 		{
 			background-color: #ffffcc;
 
 			padding-bottom: 0;
 		}
-	</style> 
-	-->
-	
+	legend
+		{
+  			background-color: black; 
+  			list-style-type: none;
+  			text-align: center; 
+  			padding: 0;
+  			margin: 0;
+  			border: 0.1em solid black;  
+		}
+	</style> 	
 	<?php
 		require_once("create_form.php"); 
 		require_once("reason_contact.php"); 
