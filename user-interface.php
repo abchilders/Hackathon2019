@@ -19,24 +19,10 @@
     <title> Inquiry Response </title>
     <meta charset="utf-8" />
 	
-	<?php
-		require_once("create_form.php"); 
-		require_once("reason_contact.php"); 
-		require_once("reason_response.php"); 
-		require_once("general_info.php");
-		require_once("report_abuse.php");
-		require_once("shelter.php"); 
-		require_once("restart.php"); 
-		require_once("intake_form.php");
-		require_once("other_reason.php"); 
+	<!-- <link href="normalize.css" type="text/css" rel="stylesheet" /> -->
 
-		// trying to use CSS
-		require_once("starting_point.css"); 
-	?>
-
-    <!-- <link href="normalize.css" type="text/css" rel="stylesheet" /> -->
-
-	<style type="text/css">
+	<!-- css styling -->
+	<style <!--type="text/css"-->>
 		body
 		{
 			margin-left: 1em;
@@ -59,6 +45,18 @@
 			padding-bottom: 0;
 		}
 	</style>
+	
+	<?php
+		require_once("create_form.php"); 
+		require_once("reason_contact.php"); 
+		require_once("reason_response.php"); 
+		require_once("general_info.php");
+		require_once("report_abuse.php");
+		require_once("shelter.php"); 
+		require_once("restart.php"); 
+		require_once("intake_form.php");
+		require_once("other_reason.php"); 
+	?>
 	
 </head>
 
