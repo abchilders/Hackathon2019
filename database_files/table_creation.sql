@@ -1,4 +1,5 @@
 /* Last modified: 2019/04/14 
+	Creates tables for RCAA YSB database. 
 */
 
 -- base table for youth 
