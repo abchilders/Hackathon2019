@@ -21,8 +21,8 @@
 	
 	<!-- <link href="normalize.css" type="text/css" rel="stylesheet" /> -->
 
-	<!-- css styling -->
-	<style <!--type="text/css"-->>
+	<!-- css styling 
+	<style>
 		body
 		{
 			margin-left: 1em;
@@ -44,7 +44,8 @@
 
 			padding-bottom: 0;
 		}
-	</style>
+	</style> 
+	-->
 	
 	<?php
 		require_once("create_form.php"); 
