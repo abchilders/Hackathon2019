@@ -65,7 +65,7 @@
 	// create the initial form
 	if (! array_key_exists("next-step", $_SESSION))
 	{
-		create_form(); 
+		require_once("Startingpoint.html"); 
 		$_SESSION["next-step"] = "contact-reason"; 
 	}
 	
@@ -156,7 +156,7 @@
 					intake_form();
 					$_SESSION["next-step"] = "end_session"; 
 				}
-				elseif (($age => 17) and ($age <= 24))
+				elseif (($age >= 17) and ($age <= 24))
 				{
 					?>
 					<p> We do not provide same-day shelter for this age group, but they
