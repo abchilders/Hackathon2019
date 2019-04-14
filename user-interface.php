@@ -333,6 +333,30 @@
 		add_to_session("other_call_reason");
 		add_to_session("other_reason");
 		
+		?>
+		<p> Your response has been submitted. The information we've gathered, 
+			which could now be collected in a database, is: </p> 
+		<ul> 
+		<?php
+		foreach($_SESSION as $key => $value)
+		{
+			?>
+			<li> <?= $key ?>: <?= $value ?> </li> 
+			<?php
+		}
+		?>
+		</ul>
+		
+		<form action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>"
+          method="post">
+		  <input type="submit" name="restart" value="Record new call" /> 
+		</form>
+		<?php
+		
+		$_SESSION["next-step"] = "restart"; 
+	}
+	else if($_SESSION["next-step"] == "restart")
+	{
 		restart(); 
 	}
 	else
