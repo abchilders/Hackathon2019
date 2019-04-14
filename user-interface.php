@@ -35,7 +35,7 @@
 		{
 			margin-left: auto;
 			margin-right: auto;
-			width: 24em;
+			width: 50%;
 			background-color: white;
 		}
 
