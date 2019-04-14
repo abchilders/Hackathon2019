@@ -10,7 +10,7 @@ create table youth
  primary key (youth_id)); 
 
 -- base table for shelter_req 
-drop table shelter_req casecade constraints; 
+drop table shelter_req cascade constraints; 
 
 create table shelter_req
 (intake_id			integer,
@@ -18,7 +18,7 @@ create table shelter_req
  si_intent			varchar2(3) 	check(si_intent in('yes', 'no')),
  fights				varchar2(3)		check(fights in ('yes_two', 'no_two')),
  fight_factors		varchar2(100), 
- has_social_worker	varchar2(10)	check(has_social_worker in ('yes_three', 'no_three'), 
+ has_social_worker	varchar2(10)	check(has_social_worker in ('yes_three', 'no_three')), 
  soc_worker_name	varchar2(50),
  guardian_contact	varchar2(50), 
  outcome			varchar2(50), 
