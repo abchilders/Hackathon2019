@@ -1,12 +1,14 @@
-<html>
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-<title>Starting point </title>
+	<title>Starting point </title>
+	<meta charset="utf-8" />
 </head>
 
 <body>
- <form action="file:///C:/Users/Daysi/Desktop/layout2.html"
-          method="get">
+ <form action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>"
+          method="post">
         <fieldset>
             <legend> Information about the caller </legend>
 
@@ -39,16 +41,16 @@
 			<label>
 				Youth's age: 
 				<label>
-					<input type="radio" name="11_or_younger" /> less than 12
+					<input type="radio" name="age" value="11_or_younger" /> less than 12
 				</label>
 				<label>
-					<input type="radio" name="12-17" /> 12-17
+					<input type="radio" name="age" value="12-17" /> 12-17
 				</label>
 				<label>
-					<input type="radio" name="18-24" /> 18-24
+					<input type="radio" name="age" value="18-24" /> 18-24
 				</label>
 				<label>
-					<input type="radio" name="25_or_older" /> older than 24
+					<input type="radio" name="age" value="25_or_older" /> older than 24
 				</label>
 			</label>
 			<label>
@@ -66,8 +68,8 @@
 			</label>
 			
         </fieldset>
-		
-		
+		<input type="submit" name="get_caller_reason" value="Next" />
+	</form>	
 
 </body>
 </html>
