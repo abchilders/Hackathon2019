@@ -39,8 +39,7 @@
 	fieldset
 		{
 			background-color: #ffffcc;
-
-			padding-bottom: 0;
+			padding: 1em; 
 		}
 	legend
 		{
@@ -169,9 +168,6 @@
 			// if we get here, age is either in $_SESSION or $_POST, from the above if branch 
 			else
 			{
-				?>
-				<p> Entered else branch </p>
-				<?php
 				// if we're coming from the previous branch (age isn't in the 
 				// session array yet), add age to session array
 				add_to_session("age"); 
@@ -392,23 +388,6 @@
 	}*/
 
 	?>
-<!-- remove footer when presenting -->
-    <hr />
-
-    <p>
-        Validate by pasting .xhtml copy's URL into<br />
-        <a href="https://html5.validator.nu/">
-            https://html5.validator.nu/
-        </a>
-    </p>
-
-    <p>
-        <a href=
-           "http://jigsaw.w3.org/css-validator/check/referer?profile=css3">
-            <img src="http://jigsaw.w3.org/css-validator/images/vcss"
-                 alt="Valid CSS3!" height="31" width="88" />
-        </a>
-    </p>
 
 </body>
 </html>

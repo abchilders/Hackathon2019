@@ -3,5 +3,8 @@
 // for demo purposes, we'll only deal with the "youth" and "inquiry_demo" table 
 
 // first, insert information into youth table 
+insert into youth(youth_id, name)
+values
+(youth_id.nextval, 
 
 ?>

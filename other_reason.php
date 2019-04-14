@@ -9,8 +9,8 @@ function other_reason()
           method="post">
 		<fieldset>
 		<legend> Other reason</legend>
-		<label> State why the caller was calling and what information you gave them.
-			<textarea name="other_call_reason" rows="5" cols="20"> </textarea>
+		<label> State why the caller was calling and what information you gave them. <br/>
+			<textarea name="other_call_reason" rows="20" cols="50"> </textarea>
 		</label>
 		</fieldset>
 		<input type="submit" name="other_reason" value="finish" />
