@@ -42,7 +42,7 @@
 
 			padding-bottom: 0;
 		}
-	* legend
+	legend
 		{
   			background-color: white; 
   			list-style-type: none;
