@@ -30,7 +30,7 @@
 		require_once("reason_response.php"); 
 		require_once("general_info.php");
 		require_once("report_abuse.php");
-		require_once("referrals.php");
+		//require_once("referrals.php");
 		require_once("shelter.php"); 
 		require_once("restart.php"); 
 		require_once("intake_form.php"); 
@@ -160,7 +160,7 @@
 					<p> We do not provide same-day shelter for this age group, but they
 						may qualify for one of our transitional housing programs. </p>
 					<?php
-					referrals(); 
+					require_once("Section2.html");
 					$_SESSION["next-step"] = "end_session"; 
 				}
 				// if the person is less than 12 or older than 24 
@@ -170,7 +170,7 @@
 					?>
 					<p> We do not provide housing for people under 12 or over 24. </p> 
 					<?php
-					referrals();
+					require_once("Section2.html"); 
 					$_SESSION["next-step"] = "end_session"; 
 				}
 				else
@@ -180,7 +180,7 @@
 					<p> We can't help you if we don't know your age, but there
 						are other resources we can refer you to. </p>
 					<?php
-					referrals(); 
+					require_once("Section2.html"); 
 					$_SESSION["next-step"] = "end_session"; 
 				}
 			}
