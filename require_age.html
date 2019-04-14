@@ -1,0 +1,20 @@
+<form action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>"
+          method="post">
+	<fieldset>
+		<legend> We need to ask the youth's age in order to provide services: </legend>
+			<label>
+				<input type="radio" name="age" value="11_or_younger" 
+					required="required" /> less than 12
+			</label>
+			<label>
+				<input type="radio" name="age" value="12-17" /> 12-17
+			</label>
+			<label>
+				<input type="radio" name="age" value="18-24" /> 18-24
+			</label>
+			<label>
+				<input type="radio" name="age" value="25_or_older" /> older than 24
+			</label>
+	<fieldset>
+	<input type="submit" name="age_response" value="Next" />
+</form>

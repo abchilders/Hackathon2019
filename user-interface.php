@@ -26,8 +26,7 @@
 		require_once("general_info.php");
 		require_once("report_abuse.php");
 		require_once("referrals.php");
-		require_once("shelter.php");
-		require_once("prompt_for_age.php"); 
+		require_once("shelter.php"); 
 		require_once("restart.php"); 
 		require_once("intake_form.php"); 
 	?>
@@ -117,15 +116,7 @@
 			if (! array_key_exists("age", $_SESSION) and ! array_key_exists("age", $_POST))
 			{
 				// ask for it
-				?>
-				<form action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>"
-					method="post">
-				<?php
-					prompt_for_age(); 
-				?>
-					<input type="submit" name="submit" />
-				</form>
-				<?php
+				require_once("require_age.html"); 
 			}
 				
 			// if we get here, age is either in $_SESSION or $_POST, from the above if branch 
