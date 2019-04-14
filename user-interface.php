@@ -218,7 +218,7 @@
 							}
 							?>
 							/> 
-						</label>
+						</label><br/>
 						<label>
 							Caller phone number/contact info:
 							<input type="text" name="caller"
@@ -231,7 +231,7 @@
 							}
 							?>
 							/>
-						</label>
+						</label><br/>
 						<label> Other contact information: 
 						<textarea name="other_contact" rows="5" cols="20"></textarea>
 						</label>
