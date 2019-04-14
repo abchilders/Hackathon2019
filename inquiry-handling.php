@@ -37,6 +37,7 @@
 
 <body>
 	<?php
+	/* DEBUGGING STUFF
 	//DEBUG
 	if (array_key_exists("next-step", $_SESSION))
 	{
@@ -59,7 +60,7 @@
 		?>
 		<p> Age is: <?= $_SESSION["age"] ?> </p>
 		<?php
-	}
+	}*/
 	
 	// create the initial form
 	if (! array_key_exists("next-step", $_SESSION))
@@ -149,13 +150,13 @@
 				// to page based on youth's age
 				$age = $_SESSION["age"]; 
 				
-				if (($age >= 12) and ($age <= 17))
+				if (($age >= 12) and ($age < 18))
 				{
 					// this person qualifies for same-day shelter, so do an intake form
 					intake_form();
 					$_SESSION["next-step"] = "end_session"; 
 				}
-				elseif (($age >= 18) and ($age <= 24))
+				elseif (($age => 17) and ($age <= 24))
 				{
 					?>
 					<p> We do not provide same-day shelter for this age group, but they
