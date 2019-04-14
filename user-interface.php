@@ -33,7 +33,6 @@
 			margin-left: auto;
 			margin-right: auto;
 			width: 50%;
-			background-color: white;
 		}
 
 
@@ -43,9 +42,9 @@
 
 			padding-bottom: 0;
 		}
-	legend
+	* legend
 		{
-  			background-color: black; 
+  			background-color: white; 
   			list-style-type: none;
   			text-align: center; 
   			padding: 0;
