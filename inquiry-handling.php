@@ -150,13 +150,13 @@
 				// to page based on youth's age
 				$age = $_SESSION["age"]; 
 				
-				if (($age >= 12) and ($age < 18))
+				if ($age == "12-17") 
 				{
 					// this person qualifies for same-day shelter, so do an intake form
 					intake_form();
 					$_SESSION["next-step"] = "end_session"; 
 				}
-				elseif (($age >= 17) and ($age <= 24))
+				elseif ($age == "18-24")
 				{
 					?>
 					<p> We do not provide same-day shelter for this age group, but they
@@ -166,13 +166,23 @@
 					$_SESSION["next-step"] = "end_session"; 
 				}
 				// if the person is less than 12 or older than 24 
-				else
+				elseif (($age == "11_or_younger") or ($age == "25_or_older"))
 				{
 					// can't provide services for this person; refer them
 					?>
 					<p> We do not provide housing for people under 12 or over 24. </p> 
 					<?php
 					referrals();
+					$_SESSION["next-step"] = "end_session"; 
+				}
+				else
+				{
+					// if we don't know your age, we can't help you
+					?>
+					<p> We can't help you if we don't know your age, but there
+						are other resources we can refer you to. </p>
+					<?php
+					referrals(); 
 					$_SESSION["next-step"] = "end_session"; 
 				}
 			}
