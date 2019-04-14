@@ -45,6 +45,7 @@
 	legend
 		{
   			background-color: white; 
+  			list-style-type: none;
   			text-align: center; 
   			padding: 0;
   			margin: 0;
