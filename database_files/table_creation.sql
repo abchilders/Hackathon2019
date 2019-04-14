@@ -75,6 +75,16 @@ create table inquiry
  foreign key (youth_id) references youth,
  foreign key (report_id) references report,
  foreign key (intake_id) references shelter_req); 
+ 
+ -- DEMO base table for inquiry (very simplified)
+ create table inquiry_demo
+ (call_id 				integer, 
+  caller_name 			varchar2(50),
+  caller_contact_info	varchar2(50),
+  youth_id				integer,
+  primary key (call_id), 
+  foreign key (youth_id) references youth
+ ); 
 
 -- intersection table for referral and inquiry 
 drop table referrals_from_inquiry cascade constraints; 

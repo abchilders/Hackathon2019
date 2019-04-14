@@ -126,7 +126,7 @@
 	elseif($_SESSION["next-step"] == "reason-response")
 	{
 		add_to_session("reason"); 
-		add_to-session("respond_to_reason"); 
+		add_to_session("respond_to_reason"); 
 		
 		// respond depending on the reason for calling
 		
