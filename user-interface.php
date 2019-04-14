@@ -1,10 +1,5 @@
 <?php
 	session_start(); 
-	
-	if(! array_key_exists("title", $_SESSION))
-	{
-		$_SESSION["title"] = "Starting Point"; 
-	}
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +16,7 @@
 -->
 
 <head>
-    <title> <?= $_SESSION["title"] ?> </title>
+    <title> Inquiry Response </title>
     <meta charset="utf-8" />
 	
 	<?php
@@ -32,7 +27,8 @@
 		require_once("report_abuse.php");
 		require_once("shelter.php"); 
 		require_once("restart.php"); 
-		require_once("intake_form.php"); 
+		require_once("intake_form.php");
+		require_once("other_reason.php"); 
 	?>
 
     <link href="normalize.css" type="text/css" rel="stylesheet" />
@@ -70,7 +66,6 @@
 	{
 		require_once("Startingpoint.html"); 
 		$_SESSION["next-step"] = "contact-reason"; 
-		$_SESSION["title"] = "Section 1"; 
 	}
 	
 	elseif($_SESSION["next-step"] == "contact-reason")
@@ -95,8 +90,6 @@
 		}
 		require_once("Section1.html");  
 		$_SESSION["next-step"] = "reason-response"; 
-		
-		//CREATE TITLES IN RESPONSE TO REASON LATER  
 	}
 	
 	elseif($_SESSION["next-step"] == "reason-response")
@@ -263,6 +256,11 @@
 				}
 			}
 		}
+		elseif($_SESSION["reason"] == "other_two" )
+		{
+			other_reason(); 
+			$_SESSION["next-step"] = "end_session"; 
+		}
 	}
 	elseif($_SESSION["next-step"] == "end_session")
 	{
@@ -271,7 +269,7 @@
 	else
 	{
 		?>
-			<p> AY AY AY </p> 
+			<p> Should not have gotten here?!?! </p> 
 		<?php
 	}
 	
