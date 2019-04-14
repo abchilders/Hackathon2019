@@ -14,6 +14,8 @@ referrals_from_inquiry(CALL_ID, REFERRAL_ID)
 	foreign key (call_id) references inquiry
 	foreign key (referral_id) references referral 
 
-shelter_req(INTAKE_ID, [form_info], outcome, arrival_time, not_coming_reason)
+shelter_req(INTAKE_ID, reason_for_shelter, si_intent, fights, fight_factors, 
+	has_social_worker, soc_worker_name, guardian_contact, outcome, arrival_time, 
+	not_coming_reason)
 
 report(REPORT_ID, date_created, notes, date_resolved)

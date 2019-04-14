@@ -128,16 +128,14 @@
 	
 	elseif($_SESSION["next-step"] == "reason-response")
 	{
-		if(! array_key_exists("reason", $_SESSION))
-		{
-			$_SESSION["reason"] = htmlspecialchars($_POST["reason"]);
-		}
+		add_to_session("reason"); 
+		add_to-session("respond_to_reason"); 
 		
 		// respond depending on the reason for calling
 		
 		// IDEA: put checkboxes that are on into an array and iterate through the array to make sure we 
-		// respond to all checkboxes (TO DO LATER)
-		// TO DO: add "other" option 
+		// respond to all checkboxes, sometime in the future
+		
 		if($_SESSION["reason"] == "information" )
 		{
 			general_info();
@@ -298,6 +296,33 @@
 	}
 	elseif($_SESSION["next-step"] == "end_session")
 	{
+		// record final inputs
+		
+		// for reason: getting general info 
+		add_to_session("general_info");
+		
+		// for reason: report abuse/neglect
+		add_to_session("notes");
+		add_to_session("abuse_report"); 
+		
+		// for reason: provide non-shelter referrals 
+		add_to_session("welfare");
+		add_to_session("mental_health");
+		add_to_session("abuse_services");
+		add_to_session("system_agency");
+		add_to_session("domestic_violence");
+		add_to_session("rape_crisis");
+		add_to_session("law_enforcement");
+		add_to_session("free_meal");
+		add_to_session("a_house");
+		add_to_session("r_progcet");
+		add_to_session("betty_chinn");
+		add_to_session("food_for_people");
+		add_to_session("other_three");
+		add_to_session("referral");
+		
+		// for reason: shelter intake 
+		
 		restart(); 
 	}
 	else

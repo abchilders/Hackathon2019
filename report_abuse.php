@@ -9,7 +9,7 @@ function report_abuse()
 		<label for="notes"> Take detailed notes. You may be asked to make a report at 
 		a later date. </label>
 		
-		<textarea id="notes" rows="5" cols="20"> </textarea>
+		<textarea id="notes" name="notes" rows="5" cols="20"> </textarea>
 	<input type="submit" name="abuse_report" value="Finish" />
 	</form>
 	<?php

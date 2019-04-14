@@ -22,7 +22,7 @@ create table shelter_req
  has_social_worker	varchar2(10)	check(has_social_worker in ('yes_three', 'no_three')), 
  soc_worker_name	varchar2(50),
  guardian_contact	varchar2(50), 
- outcome			varchar2(50), 
+ outcome			varchar2(50)	check(outcome in ('will_stay', 'no_stay')),
  arrival_time		varchar2(10), 
  not_coming_reason	varchar2(100),
  primary key (intake_id)
@@ -66,7 +66,7 @@ create table inquiry
  caller_name			varchar2(50), 
  caller_role			varchar2(50),
  caller_contact_info	varchar2(50), 
- reason					varchar2(50), 
+ reason					varchar2(50),
  outcome				varchar2(50),
  youth_id				integer, 
  report_id				integer, 
