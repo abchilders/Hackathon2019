@@ -13,6 +13,7 @@ function other_reason()
 			<textarea rows="5" cols="20"> </textarea>
 		</label>
 		</fieldset>
+		<input type="submit" name="other_reason" value="finish" />
 	</form>
 	<?php
 }
