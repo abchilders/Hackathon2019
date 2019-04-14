@@ -29,6 +29,9 @@
 		require_once("restart.php"); 
 		require_once("intake_form.php");
 		require_once("other_reason.php"); 
+
+		// trying to use CSS
+		require_once("starting_point.css"); 
 	?>
 
     <link href="normalize.css" type="text/css" rel="stylesheet" />
