@@ -100,19 +100,19 @@
 		// IDEA: put checkboxes that are on into an array and iterate through the array to make sure we 
 		// respond to all checkboxes (TO DO LATER)
 		// TO DO: add "other" option 
-		if($_SESSION["reason"] == "general_info" )
+		if($_SESSION["reason"] == "information" )
 		{
 			general_info();
 			$_SESSION["next-step"] = "end_session"; 
 		}
 		
-		elseif($_SESSION["reason"] == "report_abuse" )
+		elseif($_SESSION["reason"] == "child" )
 		{
 			report_abuse();
 			$_SESSION["next-step"] = "end_session"; 
 		}
 		
-		elseif($_SESSION["reason"] == "referrals" )
+		elseif($_SESSION["reason"] == "resources" )
 		{
 			require_once("Section2.html"); 
 			$_SESSION["next-step"] = "end_session"; 
