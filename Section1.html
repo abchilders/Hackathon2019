@@ -1,43 +1,23 @@
-
-
-
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-
-
-
-<head>
-    <title> Section 1 </title>
-		<meta charset="utf-8" />
-	
-</head>
-
-<body>
-
 <!--<h1> Reason for contact(check all that applys)</h1>
 -->
+<form action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>"
+          method="post">
 	<fieldset>
-		
-		<legend>Reason for contact(check all that applys) </legend>
+		<!-- ideally, these should be checkboxes to match user specification -->
+		<legend> Reason for contact </legend>
 		<label>
-			<input type ="checkbox" name"infomation"/> General information about YSB programs(NOT a reuest for shelter)</label><br />
+			<input type="radio" name="reason" value="information"/> General information about YSB programs (NOT a request for shelter)</label><br />
 		<label>
-			<input type ="checkbox" name"child"/> Report of child abuse/neglect</label><br />
+			<input type="radio" name="reason" value="child"/> Report of child abuse/neglect</label><br />
 				<ul>
 					<li>IMPORTANT: Take detailed notes, You may be asked to make a report at a later date.</li>
 				</ul>
 		<label>
-			<input type ="checkbox" name"resources"/> Request for resources other than shelter(procced to SECTION 2)</label><br />	
+			<input type ="radio" name="reason" value="resources"/> Request for resources other than shelter(procced to SECTION 2)</label><br />	
 		<label>
-			<input type ="checkbox" name"shelter"/> Request for shelter(proced to SECTION 3)</label><br />	
-		<label>
-		<label>Other:<input type="text" name="other_two"/></label>
-		
+			<input type="radio" name="reason" value="shelter"/> Request for shelter(proced to SECTION 3)</label><br />	
+		<label>Other:<input type="text" name="other_two" /></label>
 	</fieldset>
 	
-	<input type="submit" name="" value="Next" />
-	
-
-  
-</body>
-</html>
+	<input type="submit" name="respond_to_reason" value="Next" />
+</form>

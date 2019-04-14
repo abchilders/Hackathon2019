@@ -1,5 +1,10 @@
 <?php
 	session_start(); 
+	
+	if(! array_key_exists("title", $_SESSION))
+	{
+		$_SESSION["title"] = "Starting Point"; 
+	}
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +21,7 @@
 -->
 
 <head>
-    <title> Call Response </title>
+    <title> <?= $_SESSION["title"] ?> </title>
     <meta charset="utf-8" />
 	
 	<?php
@@ -66,6 +71,7 @@
 	{
 		require_once("Startingpoint.html"); 
 		$_SESSION["next-step"] = "contact-reason"; 
+		$_SESSION["title"] = "Section 1"; 
 	}
 	
 	elseif($_SESSION["next-step"] == "contact-reason")

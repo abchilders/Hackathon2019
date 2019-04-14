@@ -1,75 +1,63 @@
-<!DOCTYPE html> 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<form action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>"
+	  method="post">
+	<fieldset>
+		<legend> Information about the caller </legend>
 
-<head>
-	<title>Starting point </title>
-	<meta charset="utf-8" />
-</head>
+		<label>
+			Date: 
+			<input type="text" name="date"/>
+		</label>
+		<label>
+			Staff:
+			<input type="text" name="staff"/>
+		</label>
+			<p>Caller's role<br />
 
-<body>
- <form action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>"
-          method="post">
-        <fieldset>
-            <legend> Information about the caller </legend>
-
-            <label>
-                Date: 
-                <input type="text" name="date"/>
-            </label>
+		 <input type ="checkbox" name"youth" /> 
+		 Youth</label><br />
+		 <input type ="checkbox" name"parent" /> 
+		 Parent</label><br />
+		 <input type ="checkbox" name"cws" /> 
+		 CWS</label><br />
+			 <label>Other:<input type="text" name="other_one"/></label>
+		 </p>
+		 <label>
+			Youth's name: 
+			<input type="text" name="youth_name"/>
+		</label>
+		<label>
+			Youth's DOB:
+			<input type="text" name="dob"/>
+		</label>
+		<label>
+			Youth's age: 
 			<label>
-				Staff:
-				<input type="text" name="staff"/>
-			</label>
-				<p>Caller's role<br />
-
-			 <input type ="checkbox" name"youth" /> 
-			 Youth</label><br />
-			 <input type ="checkbox" name"parent" /> 
-			 Parent</label><br />
-			 <input type ="checkbox" name"cws" /> 
-			 CWS</label><br />
-				 <label>Other:<input type="text" name="other_one"/></label>
-			 </p>
-			 <label>
-                Youth's name: 
-                <input type="text" name="youth_name"/>
-            </label>
-			<label>
-				Youth's DOB:
-				<input type="text" name="dob"/>
+				<input type="radio" name="age" value="11_or_younger" /> less than 12
 			</label>
 			<label>
-				Youth's age: 
-				<label>
-					<input type="radio" name="age" value="11_or_younger" /> less than 12
-				</label>
-				<label>
-					<input type="radio" name="age" value="12-17" /> 12-17
-				</label>
-				<label>
-					<input type="radio" name="age" value="18-24" /> 18-24
-				</label>
-				<label>
-					<input type="radio" name="age" value="25_or_older" /> older than 24
-				</label>
+				<input type="radio" name="age" value="12-17" /> 12-17
 			</label>
 			<label>
-				<p>Phone numbers/contact info(gather as much as possible)</p>
-				Caller:
-				<input type="text" name="caller"/>
+				<input type="radio" name="age" value="18-24" /> 18-24
 			</label>
 			<label>
-				Youth:
-				<input type="text" name="youth"/>
+				<input type="radio" name="age" value="25_or_older" /> older than 24
 			</label>
-			<label>
-				Guardian:
-				<input type="text" name="gardian"/>
-			</label>
-			
-        </fieldset>
-		<input type="submit" name="get_caller_reason" value="Next" />
-	</form>	
-
-</body>
-</html>
+		</label>
+		<label>
+			<p>Phone numbers/contact info(gather as much as possible)</p>
+			Caller:
+			<input type="text" name="caller"/>
+		</label>
+		<label>
+			Youth:
+			<input type="text" name="youth"/>
+		</label>
+		<label>
+			Guardian:
+			<input type="text" name="gardian"/>
+		</label>
+		
+	</fieldset>
+	<input type="submit" name="get_caller_reason" value="Next" />
+</form>	
