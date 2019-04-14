@@ -21,37 +21,7 @@
 	
 	<link href="normalize.css" type="text/css" rel="stylesheet" /> 
 	<link href="starting_point.css" type="text/css" rel="stylesheet"/> 
-	<!--
-	<style>
-	body
-		{
-			margin-left: 1em;
-			background-color: beige;
-		}
 
-	form
-		{
-			margin-left: auto;
-			margin-right: auto;
-			width: 50%;
-		}
-
-
-	fieldset
-		{
-			background-color: #ffffcc;
-			padding: 1em; 
-		}
-	legend
-		{
-  			background-color: white; 
-  			list-style-type: none;
-  			text-align: center; 
-  			padding: 0;
-  			margin: 0;
-  			border: 0.1em solid black;  
-		}
-	</style> -->
 	<?php
 		require_once("create_form.php"); 
 		require_once("reason_contact.php"); 
