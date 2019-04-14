@@ -82,8 +82,10 @@
 		{
 			$_SESSION["age"] = htmlspecialchars($_POST["age"]); 
 		}
-		reason_contact();  
+		require_once("Section 1.html");  
 		$_SESSION["next-step"] = "reason-response"; 
+		
+		//CREATE TITLES IN RESPONSE TO REASON LATER LOL 
 	}
 	
 	elseif($_SESSION["next-step"] == "reason-response")
@@ -112,7 +114,7 @@
 		
 		elseif($_SESSION["reason"] == "referrals" )
 		{
-			referrals();
+			require_once("Section2.html"); 
 			$_SESSION["next-step"] = "end_session"; 
 		}
 		
