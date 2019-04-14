@@ -9,8 +9,8 @@ function restart()
 	// restart a new session from the landing page 
 	session_start(); 
 	
-	create_login(); 
-	$_SESSION["next-step"] = "start-form"; 
+	require_once("Startingpoint.html"); 
+	$_SESSION["next-step"] = "contact-reason"; 
 }
 	
 ?>
