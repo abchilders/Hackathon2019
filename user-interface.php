@@ -32,6 +32,9 @@
 	?>
 
     <link href="normalize.css" type="text/css" rel="stylesheet" />
+
+	<link href="http://nrs-projects.humboldt.edu/~abc66/Hackathon2019/starting_point.css"
+          type="text/css" rel="stylesheet" />
 	
 </head>
 
