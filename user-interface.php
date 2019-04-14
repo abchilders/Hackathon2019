@@ -19,8 +19,9 @@
     <title> Inquiry Response </title>
     <meta chars t="utf-8" />
 	
-	<!-- <link href="normalize.css" type="text/css" rel="stylesheet" /> -->
- 
+	<link href="normalize.css" type="text/css" rel="stylesheet" /> 
+	<link href="starting_point.css" type="text/css" rel="stylesheet"/> 
+	<!--
 	<style>
 	body
 		{
@@ -50,7 +51,7 @@
   			margin: 0;
   			border: 0.1em solid black;  
 		}
-	</style> 	
+	</style> -->
 	<?php
 		require_once("create_form.php"); 
 		require_once("reason_contact.php"); 
