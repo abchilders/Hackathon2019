@@ -152,7 +152,7 @@
 				{
 					// this person qualifies for same-day shelter, so do an intake form
 					//intake_form();
-					require_once("intakeform.html");
+					require_once("Intakeform.html");
 					$_SESSION["next-step"] = "end_session"; 
 				}
 				elseif ($age == "18-24")
