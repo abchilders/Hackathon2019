@@ -66,6 +66,7 @@
 		require_once("restart.php"); 
 		require_once("intake_form.php");
 		require_once("other_reason.php"); 
+		require_once("add_to_session.php"); 
 	?>
 	
 </head>
@@ -106,24 +107,21 @@
 	
 	elseif($_SESSION["next-step"] == "contact-reason")
 	{
-		// add age to session array
-		if( (array_key_exists ("age", $_POST)) and 
-			($_POST["age"] != "") )
-		{
-			$_SESSION["age"] = htmlspecialchars($_POST["age"]); 
-		}
+		add_to_session("date"); 
+		add_to_session("staff"); 
+		add_to_session("caller_name"); 
+		add_to_session("youth"); 
+		add_to_session("parent"); 
+		add_to_session("cws"); 
+		add_to_session("other_one");
+		add_to_session("youth_name");
+		add_to_session("dob"); 
+		add_to_session("age"); 
+		add_to_session("caller"); 
+		add_to_session("youth"); 
+		add_to_session("gardian");
+		add_to_session("get_caller_reason"); 
 		
-		if( (array_key_exists("caller_name", $_POST)) and 
-			($_POST["caller_name"] != "") )
-		{
-			$_SESSION["caller_name"] = htmlspecialchars($_POST["caller_name"]); 
-		}
-		
-		if( (array_key_exists("caller", $_POST)) and 
-			($_POST["caller"] != "") )
-		{
-			$_SESSION["caller"] = htmlspecialchars($_POST["caller"]); 
-		}
 		require_once("Section1.html");  
 		$_SESSION["next-step"] = "reason-response"; 
 	}
