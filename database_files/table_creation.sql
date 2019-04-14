@@ -10,7 +10,9 @@ create table youth
  primary key (youth_id)); 
 
 -- base table for shelter_req 
-drop table shelter_req
+drop table shelter_req casecade constraints; 
+
+create table shelter_req
 (intake_id			integer,
  reason_for_shelter	varchar2(100),
  si_intent			varchar2(3) 	check(si_intent in('yes', 'no')),
@@ -29,8 +31,11 @@ drop table shelter_req
 drop table report cascade constraints; 
 
 create table report
-(report_id	integer, 
- date_created	varchar2(50)
+(report_id		integer, 
+ date_created	varchar2(50),
+ notes			varchar2(400), 
+ date_resolved	date,
+ primary key (report_id)
 );
 
 -- base table for referral
@@ -41,7 +46,8 @@ create table referral
  referral_date				varchar2(50), 
  agency					varchar2(50), 
  referral_completion_date	date,
- primary key (referral_id)); 
+ primary key (referral_id)
+); 
 
  -- base table for inquiry (instances of someone calling YSB. 
  -- think of it like a record for one phone call, one paper form)
@@ -75,5 +81,6 @@ drop table referrals_from_inquiry cascade constraints;
 create table referrals_from_inquiry
 (call_id		integer,
  referral_id 	integer, 
- primary key (call_id, referral_id));
+ primary key (call_id, referral_id)
+);
   
