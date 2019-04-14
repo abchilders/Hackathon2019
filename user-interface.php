@@ -9,13 +9,10 @@
 <!--
 	Template courtesy of Sharon Tuttle
     by: Rawan Almakhloog, Alex Childers, Daysi Hilario, Sthephany Ponce
-    last modified: 2019/04/12
+    last modified: 2019/04/14
 
     you can run this using the URL: 
 	https://nrs-projects.humboldt.edu/~abc66/Hackathon2019/user-interface.php
-
-	Rawan's copy:
-	https://nrs-projects.humboldt.edu/~rha25/Hackathon2019/user-interface.php
 -->
 
 <head>
@@ -178,10 +175,7 @@
 				<?php
 				// if we're coming from the previous branch (age isn't in the 
 				// session array yet), add age to session array
-				if(array_key_exists ("age", $_POST))
-				{
-					$_SESSION["age"] = htmlspecialchars($_POST["age"]); 
-				}
+				add_to_session("age"); 
 				
 				// DEBUG
 				//<p> $_POST["age"] is <?= htmlspecialchars($_POST["age"]) </p>
@@ -244,7 +238,7 @@
 							/>
 						</label>
 						<label> Other contact information: 
-						<textarea rows="5" cols="20"></textarea>
+						<textarea name="other_contact" rows="5" cols="20"></textarea>
 						</label>
 					</fieldset>
 					<?php
@@ -306,6 +300,9 @@
 		add_to_session("abuse_report"); 
 		
 		// for reason: provide non-shelter referrals 
+		add_to_session("caller_name");
+		add_to_session("caller");
+		add_to_session("other_contact");
 		add_to_session("welfare");
 		add_to_session("mental_health");
 		add_to_session("abuse_services");
@@ -322,6 +319,20 @@
 		add_to_session("referral");
 		
 		// for reason: shelter intake 
+		add_to_session("ask_needed");
+		add_to_session("si_intent");
+		add_to_session("fight");
+		add_to_session("how_often");
+		add_to_session("soc_worker");
+		add_to_session("whats_the_name");
+		add_to_session("comfort");
+		add_to_session("stay");
+		add_to_session("not_sheltered");
+		add_to_session("shelter_intake");
+		
+		// for reason: other
+		add_to_session("other_call_reason");
+		add_to_session("other_reason");
 		
 		restart(); 
 	}
@@ -332,6 +343,7 @@
 		<?php
 	}
 	
+	/*
 	//DEBUG
 	if (array_key_exists("next-step", $_SESSION))
 	{
@@ -354,7 +366,7 @@
 		?>
 		<p> Age is: <?= $_SESSION["age"] ?> </p>
 		<?php
-	}
+	}*/
 
 	?>
 <!-- remove footer when presenting -->

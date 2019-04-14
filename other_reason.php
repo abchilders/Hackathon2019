@@ -10,7 +10,7 @@ function other_reason()
 		<fieldset>
 		<legend> Other reason</legend>
 		<label> State why the caller was calling and what information you gave them.
-			<textarea rows="5" cols="20"> </textarea>
+			<textarea name="other_call_reason" rows="5" cols="20"> </textarea>
 		</label>
 		</fieldset>
 		<input type="submit" name="other_reason" value="finish" />
