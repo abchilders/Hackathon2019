@@ -11,7 +11,7 @@ inquiry(CALL_ID, date, staff, caller_name, caller_role, caller_contact_info,
 referral(REFERRAL_ID, date, agency, referral_completion_date)
 
 referrals_from_inquiry(CALL_ID, REFERRAL_ID) 
-	foreign key (call_id) references inquiry,
+	foreign key (call_id) references inquiry
 	foreign key (referral_id) references referral 
 
 shelter_req(INTAKE_ID, [form_info], outcome, arrival_time, not_coming_reason)

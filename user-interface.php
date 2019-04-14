@@ -40,28 +40,27 @@
           type="text/css" rel="stylesheet" />
 
 	<style type="text/css">
-		/*=====
-body
-{
-    margin-left: 1em;
-	background-color: purple;
-}
+		body
+		{
+			margin-left: 1em;
+			background-color: purple;
+		}
 
-form
-{
-    margin-left: auto;
-    margin-right: auto;
-    width: 24em;
-	background-color:red;
-}
+		form
+		{
+			margin-left: auto;
+			margin-right: auto;
+			width: 24em;
+			background-color:red;
+		}
 
 
-fieldset
-{
-    background-color: #ffffcc;
+		fieldset
+		{
+			background-color: #ffffcc;
 
-    padding-bottom: 0;
-}
+			padding-bottom: 0;
+		}
 	</style>
 	
 </head>
