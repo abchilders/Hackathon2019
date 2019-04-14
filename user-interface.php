@@ -38,6 +38,31 @@
 
 	<link href="http://nrs-projects.humboldt.edu/~abc66/Hackathon2019/starting_point.css"
           type="text/css" rel="stylesheet" />
+
+	<style type="text/css">
+		/*=====
+body
+{
+    margin-left: 1em;
+	background-color: purple;
+}
+
+form
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 24em;
+	background-color:red;
+}
+
+
+fieldset
+{
+    background-color: #ffffcc;
+
+    padding-bottom: 0;
+}
+	</style>
 	
 </head>
 
