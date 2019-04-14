@@ -1,16 +1,18 @@
 <?php
-// CURRENTLY A STUB FOR DEBUGGING PURPOSES. 
-
-/* Creates an initial form asking for caller and youth data from the user. 
-*/
+// Gives instructions for the user to give the caller general information
+// on YSB. 
 
 function general_info()
 {
 	?>
-	<p> Show general info here. </p> 
+	<p> Give the caller general information about <strong>
+	<a href="http://rcaa.org/youth-service-bureau"
+		target="_blank">YSB programs</a></strong>.
 	
-	<p> <a href="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>">
-        Start Over </a> </p>
+	<form action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>"
+	  method="post">
+	  <input type="submit" name="general_info" value="Finish"/>
+	</form>
 	<?php
 }
 ?>
