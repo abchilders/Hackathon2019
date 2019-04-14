@@ -132,10 +132,9 @@
 					$_SESSION["age"] = htmlspecialchars($_POST["age"]); 
 				}
 				
-				?>
-				<p> $_POST["age"] is <?= htmlspecialchars($_POST["age"]) ?> </p>
-				<p> $_SESSION["age"] is <?= $_SESSION["age"] ?> </p>
-				<?php
+				// DEBUG
+				//<p> $_POST["age"] is <?= htmlspecialchars($_POST["age"]) </p>
+				//<p> $_SESSION["age"] is <?= $_SESSION["age"] </p>
 				
 				// now, assuming $_SESSION["age"] has been sanitized, redirect
 				// to page based on youth's age
