@@ -82,6 +82,18 @@
 		{
 			$_SESSION["age"] = htmlspecialchars($_POST["age"]); 
 		}
+		
+		if( (array_key_exists("caller_name", $_POST)) and 
+			($_POST["caller_name"] != "") )
+		{
+			$_SESSION["caller_name"] = htmlspecialchars($_POST["caller_name"]); 
+		}
+		
+		if( (array_key_exists("caller", $_POST)) and 
+			($_POST["caller"] != "") )
+		{
+			$_SESSION["caller"] = htmlspecialchars($_POST["caller"]); 
+		}
 		require_once("Section1.html");  
 		$_SESSION["next-step"] = "reason-response"; 
 		
@@ -152,14 +164,24 @@
 				{
 					// this person qualifies for same-day shelter, so do an intake form
 					//intake_form();
+					?>
+					<h1> Complete the following shelter intake checklist. </h1>
+					<?php
 					require_once("Intakeform.html");
 					$_SESSION["next-step"] = "end_session"; 
 				}
 				elseif ($age == "18-24")
 				{
 					?>
-					<p> We do not provide same-day shelter for this age group, but they
-						may qualify for one of our transitional housing programs. </p>
+					<ul>
+						<li>Inform them that we do not have same-day shelter for this group, but that they may 
+				qualify for one of our transitional housing programs. </li>
+						<li> Make sure you have reliable contact information 
+						and tell them someone will be calling them back in the 
+						next few days with more detail about these programs.</li>
+						<li> Provide referrals as needed (document any referrals in SECTION 2)</li>
+					</ul>
+					
 					<?php
 					require_once("Section2.html");
 					$_SESSION["next-step"] = "end_session"; 
